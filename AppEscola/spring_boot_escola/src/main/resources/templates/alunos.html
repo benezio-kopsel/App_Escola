@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Cadastro de Alunos</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Cadastro de Alunos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Cadastro de Alunos</h1>
+    <div class="container">
+        <h1>Cadastro de Alunos</h1>
 
-        <div class="card">
-            <form th:action="@{/alunos/salvar}" th:object="${aluno}" method="post">
-                <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" th:field="*{nome}" required>
-                </div>
-                <div class="form-group">
-                    <label for="matricula">Matrícula:</label>
-                    <input type="text" id="matricula" th:field="*{matricula}" required>
-                </div>
-                <div class="form-group">
-                    <label for="curso">Curso:</label>
-                    <input type="text" id="curso" th:field="*{curso}" required>
-                </div>
-                <div class="form-group">
-                    <label for="idade">Idade:</label>
-                    <input type="number" id="idade" th:field="*{idade}" required>
-                </div>
-                <button type="submit">Salvar</button>
-            </form>
-        </div>
+        <div class="card">
+            <form th:action="@{/alunos/salvar}" th:object="${aluno}" method="post">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" th:field="*{nome}" required>
+                </div>
+                <div class="form-group">
+                    <label for="matricula">Matrícula:</label>
+                    <input type="text" id="matricula" th:field="*{matricula}" required>
+                </div>
+                <div class="form-group">
+                    <label for="curso">Curso:</label>
+                    <input type="text" id="curso" th:field="*{curso}" required>
+                </div>
+                <div class="form-group">
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" th:field="*{idade}" required>
+                </div>
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
 
-        <h2>Lista de Alunos</h2>
-        
-        <div class="card">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Matrícula</th>
-                        <th>Curso</th>
-                        <th>Idade</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="a : ${alunos}">
-                        <td th:text="${a.id}"></td>
-                        <td th:text="${a.nome}"></td>
-                        <td th:text="${a.matricula}"></td>
-                        <td th:text="${a.curso}"></td>
-                        <td th:text="${a.idade}"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+        <h2>Lista de Alunos</h2>
+        
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Matrícula</th>
+                        <th>Curso</th>
+                        <th>Idade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="a : ${alunos}">
+                        <td th:text="${a.id}"></td>
+                        <td th:text="${a.nome}"></td>
+                        <td th:text="${a.matricula}"></td>
+                        <td th:text="${a.curso}"></td>
+                        <td th:text="${a.idade}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
